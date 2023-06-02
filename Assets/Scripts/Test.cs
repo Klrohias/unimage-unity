@@ -11,35 +11,33 @@ public class Test : MonoBehaviour
     {
         if (GUILayout.Button("Test Load Async"))
         {
-            StartCoroutine(TestLoad());
+            StartCoroutine(TestAsync());
         }
         
         
         if (GUILayout.Button("Test Load"))
         {
-            StartCoroutine(TestLoad2());
+            StartCoroutine(TestSync());
         }
     }
 
-    private IEnumerator TestLoad2()
+    private IEnumerator TestSync()
     {
         var request = UnityWebRequest.Get("file://C:/Users/qingy/Downloads/loser.jpeg");
 
         yield return request.SendWebRequest();
         
-        var unimage = new UnimageHandle();
+        var unimage = new UnimageProcessor();
         
         unimage.Load(request.downloadHandler.data);
-        
-        Debug.Log(unimage.GetErrorMessage());
         unimage.Resize(100, 100);
-
-        image.texture = unimage.ToTexture2D();
+        unimage.Clip(25, 25, 50, 50);
+        image.texture = unimage.GetTexture();
     }
 
-    private IEnumerator TestLoad()
+    private IEnumerator TestAsync()
     {
-        var request = UnityWebRequest.Get("file://C:/Users/qingy/Downloads/5120x2880.png");
+        var request = UnityWebRequest.Get("file://C:/Users/qingy/Downloads/loser.jpeg");
         
         yield return request.SendWebRequest();
         
@@ -48,8 +46,10 @@ public class Test : MonoBehaviour
 
     private async void TestLoadAsync(UnityWebRequest request)
     {
-        var unimage = new UnimageHandle();
+        var unimage = new UnimageProcessor();
         await unimage.LoadAsync(request.downloadHandler.data);
-        image.texture = await unimage.ToTexture2DAsync();
+        await unimage.ResizeAsync(100, 100);
+        await unimage.ClipAsync(25, 25, 50, 50);
+        image.texture = await unimage.GetTextureAsync();
     }
 }
