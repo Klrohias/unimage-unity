@@ -23,7 +23,7 @@ public class Test : MonoBehaviour
 
     private IEnumerator TestSync()
     {
-        var request = UnityWebRequest.Get("file://C:/Users/qingy/Downloads/loser.jpeg");
+        var request = UnityWebRequest.Get("file:///Users/mac/Documents/my_bg.jpg");
 
         yield return request.SendWebRequest();
         
@@ -37,7 +37,7 @@ public class Test : MonoBehaviour
 
     private IEnumerator TestAsync()
     {
-        var request = UnityWebRequest.Get("file://C:/Users/qingy/Downloads/loser.jpeg");
+        var request = UnityWebRequest.Get("file:///Users/mac/Documents/my_bg.jpg");
         
         yield return request.SendWebRequest();
         
