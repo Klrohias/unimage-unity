@@ -1,6 +1,6 @@
 {
   "name": "dev.klrohias.unimage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "Unimage",
   "description": "A simple library that can load and process images (in asynchronous) in Unity",
   "unity": "2019.1",
@@ -14,8 +14,8 @@
     "asynchronous"
   ],
   "author": {
-    "name": "Twiiz",
-    "email": "twiiz@lightwing.eu.org",
-    "url": "https://github.com/qingyiwebt"
+    "name": "Klrohias",
+    "email": "klrohias@lightwing.eu.org",
+    "url": "https://github.com/Klrohias"
   }
 }
