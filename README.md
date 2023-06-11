@@ -6,7 +6,7 @@ Based on [Unimage Native](https://github.com/Klrohias/unimage-native).
 # Install
 Open `Unity Editor > Window > Package Manager > Add from Git URL`:  
 ```
-https://github.com/Klrohias/unimage-unity#0.1.1
+https://github.com/Klrohias/unimage-unity.git#0.1.3
 ```
 
 # Usage
